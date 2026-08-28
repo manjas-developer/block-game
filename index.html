@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Game - Match & Clear</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Block Game</h1>
+            <div class="header-stats">
+                <div class="stat">
+                    <span class="label">Level:</span>
+                    <span id="level" class="value">1</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Score:</span>
+                    <span id="score" class="value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Moves:</span>
+                    <span id="moves" class="value">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="game-area">
+            <canvas id="gameCanvas" width="400" height="600"></canvas>
+        </div>
+
+        <!-- Controls Info -->
+        <div class="controls-info">
+            <div class="desktop-controls">
+                <p>🖥️ Desktop: Use <strong>W/A/S/D</strong> or <strong>Arrow Keys</strong> to move</p>
+            </div>
+            <div class="mobile-controls">
+                <button class="control-btn" id="btnUp">▲</button>
+                <div class="horizontal-controls">
+                    <button class="control-btn" id="btnLeft">◄</button>
+                    <button class="control-btn" id="btnDown">▼</button>
+                    <button class="control-btn" id="btnRight">►</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn btn-primary" id="rotateBtn">Rotate</button>
+            <button class="btn btn-danger" id="resetBtn">Reset</button>
+        </div>
+
+        <!-- Modals -->
+        <!-- Level Complete Modal -->
+        <div id="levelCompleteModal" class="modal">
+            <div class="modal-content">
+                <h2>🎉 Level Complete!</h2>
+                <p class="modal-text">Great job! You cleared all blocks.</p>
+                <div class="stats-summary">
+                    <p>Score: <span id="finalScore">0</span></p>
+                    <p>Moves: <span id="finalMoves">0</span></p>
+                </div>
+                <button class="btn btn-primary" id="nextLevelBtn">Next Level</button>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <h2>Game Over!</h2>
+                <p class="modal-text">No more moves available.</p>
+                <div class="stats-summary">
+                    <p>Final Level: <span id="finalLevel">0</span></p>
+                    <p>Final Score: <span id="finalScoreGameOver">0</span></p>
+                </div>
+                <button class="btn btn-primary" id="restartBtn">Restart Game</button>
+            </div>
+        </div>
+
+        <!-- Level Complete (Won All) Modal -->
+        <div id="allLevelsCompleteModal" class="modal">
+            <div class="modal-content">
+                <h2>🏆 You Won!</h2>
+                <p class="modal-text">Congratulations! You completed all levels.</p>
+                <div class="stats-summary">
+                    <p>Final Level: <span id="winLevel">0</span></p>
+                    <p>Total Score: <span id="winScore">0</span></p>
+                </div>
+                <button class="btn btn-primary" id="playAgainBtn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
